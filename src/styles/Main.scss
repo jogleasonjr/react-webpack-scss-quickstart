@@ -1,13 +1,23 @@
-@import 'colors';
+@import './../../node_modules/font-awesome/css/font-awesome.min.css';
+@import './../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import 'colors'; 
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-    font-family: sans-serif;
-    color: $dark-color;    
+.fa {
+  color: $heart-red;
+}
+
+body {
+  background-color: $white;
+}
+
+.jumbotron {
+  background-color: transparent;
+  h1 {
+    font-size: 1.8em;
+  }
+  p {
+    font-size: 1.2em;
+  }
 }
 
 .nav {
@@ -20,6 +30,8 @@
   li { display: inline-block; }
 
   a {
+    font-size: 1.2em;
+    color: $heart-red;
     display: block;
     padding: 4px 8px;
     text-decoration: none;

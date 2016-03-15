@@ -1,6 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const postcssImport = require('postcss-import');
+const postcssUrl = require('postcss-url');
+const autoprefixer = require('autoprefixer');
+const precss = require('precss');
 
 const PATHS = {
     src: path.join(__dirname, 'src'),
@@ -28,8 +32,8 @@ module.exports = {
         //content from here will be automatically served from here
         contentBase: "dist/",
         // and appears to come relative to this path
-        publicPath: "/",        
-        
+        publicPath: "/",
+
         historyApiFallback: true
     },
 
@@ -58,13 +62,22 @@ module.exports = {
                 ]
             },
             {
+                // for jsx 
                 test: /\.jsx?$/,
                 include: PATHS.src,
                 loader: 'babel',
                 query: {
                     presets: ['react', 'es2015']
                 }
-            }]
+            },
+
+            // for font-awesome
+            { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
+            { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
+        ]
+    },
+    postcss: function(webpack) {
+        return [autoprefixer, precss, postcssImport({ addDependencyTo: webpack }), postcssUrl({})];
     },
     eslint: {
         configFile: '.eslintrc'
