@@ -1,8 +1,8 @@
 # electron-react-webpack-quick-start
 
-A minimal, cross-platform web application with [React](https://facebook.github.io/react/) for views and [Webpack](https://webpack.github.io/). ES6/ES2015 support using [Babel](https://babeljs.io/). SCSS support using [PostCss](https://github.com/postcss/postcss).
+A minimal, cross-platform web application with [React](https://facebook.github.io/react/) and [Webpack](https://webpack.github.io/). ES6/ES2015 support using [Babel](https://babeljs.io/). SCSS support using [PostCss](https://github.com/postcss/postcss).
 
-![Image](https://github.com/jogleasonjr/electron-react-webpack-quick-start/blob/master/images/hello_world.png)
+![Image](https://github.com/jogleasonjr/https://github.com/jogleasonjr/react-webpack-scss-quickstart/blob/master/screenshots/dev-server.png)
 
 ## To Build and Run via CLI
 

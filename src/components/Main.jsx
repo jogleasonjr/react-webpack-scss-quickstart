@@ -14,8 +14,3 @@ export default class Main extends React.Component {
         return (<div className="container"><Heading text="Hello, World!" /><img height={iconSize} width={iconSize} src={icon} /></div>);
     }
 }
-
-// ReactDOM.render(
-//     <div>Hey<img height={iconSize} width={iconSize} src={icon} /></div>,
-//     document.getElementById('react-root')
-// );

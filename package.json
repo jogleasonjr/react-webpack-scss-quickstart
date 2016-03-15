@@ -1,8 +1,12 @@
 {
   "name": "transplicity-fx-home",
   "version": "0.0.1",
-  "description": "",
+  "description": "A minimal, cross-platform web application with React and Webpack. ES6/ES2015 support using Babel. SCSS support using PostCss.",
   "main": "index.js",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/jogleasonjr/react-webpack-scss-quickstart"
+  },
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --port 8182",
     "build": "./node_modules/.bin/webpack -p "
