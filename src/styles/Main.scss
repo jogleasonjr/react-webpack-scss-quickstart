@@ -9,3 +9,23 @@
     font-family: sans-serif;
     color: $dark-color;    
 }
+
+.nav {
+  ul {
+    margin: 8px;
+    padding: 0;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+
+  a {
+    display: block;
+    padding: 4px 8px;
+    text-decoration: none;
+    
+    &.link-active {
+        font-weight: bold;
+    }
+  }
+}

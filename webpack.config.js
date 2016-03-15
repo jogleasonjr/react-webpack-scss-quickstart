@@ -28,7 +28,9 @@ module.exports = {
         //content from here will be automatically served from here
         contentBase: "dist/",
         // and appears to come relative to this path
-        publicPath: "/"
+        publicPath: "/",        
+        
+        historyApiFallback: true
     },
 
 

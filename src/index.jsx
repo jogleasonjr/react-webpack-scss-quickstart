@@ -1,12 +1,10 @@
 // Need both React and ReactDOM for the JSX transpiler.
 import ReactDOM from 'react-dom';
 import React from 'react';
-import icon from "file!./assets/images/cc.png";
-import Main from './components/Main';
-
-const iconSize = 32;
+import { Router, hashHistory } from 'react-router';
+import routes from './config/routes';
 
 ReactDOM.render(
-  <Main />,
+  <Router history={hashHistory} routes={routes}/>,
   document.getElementById('react-root')
 );
