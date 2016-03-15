@@ -14,7 +14,7 @@ cd react-webpack-scss-quickstart
 # Install dependencies and run the app with Hot Reloading
 npm install && npm run start
 ```
-Now navigate to http://localhost:8182/webpack-dev-server/ in your browser.
+Now navigate to [http://localhost:8182/webpack-dev-server/](http://localhost:8182/webpack-dev-server/) in your browser.
 
 ## Next Steps
 
