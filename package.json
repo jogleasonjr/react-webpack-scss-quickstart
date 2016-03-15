@@ -4,8 +4,8 @@
   "description": "A minimal, cross-platform web application with React and Webpack. ES6/ES2015 support using Babel. SCSS support using PostCss.",
   "main": "index.js",
   "repository": {
-      "type": "git",
-      "url": "https://github.com/jogleasonjr/react-webpack-scss-quickstart"
+    "type": "git",
+    "url": "https://github.com/jogleasonjr/react-webpack-scss-quickstart"
   },
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --port 8182",
@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "react": "^0.14.7",
-    "react-dom": "^0.14.7"
+    "react-dom": "^0.14.7",
+    "react-router": "^2.0.1"
   }
 }
