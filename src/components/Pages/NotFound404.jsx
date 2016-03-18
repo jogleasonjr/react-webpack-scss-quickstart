@@ -1,6 +1,6 @@
 import React from 'react';
-import Heading from './shared/Heading';
-import '../styles/Main.scss';
+import Heading from './../shared/Heading';
+//import '../../styles/main.scss';
 
 export default class Main extends React.Component {
     constructor(props) {

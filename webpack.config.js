@@ -45,7 +45,7 @@ module.exports = {
             {
                 test: /(\.js$|\.jsx$)/,
                 include: PATHS.src,
-                loader: "eslint-loader"
+                loader: "eslint"
             }
         ],
 
@@ -58,7 +58,8 @@ module.exports = {
                 loaders: [
                     'style',// inserts raw css into styles elements.
                     'css', // css-loader parses css files resolves url() expressions.
-                    'sass' // sass-loader for sass compilation
+                    'sass', // sass-loader for sass compilation
+                    'postcss' // for whatever we have defined in postcss( ) below
                 ]
             },
             {

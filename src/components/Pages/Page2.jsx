@@ -10,7 +10,7 @@ export default class Page2 extends React.Component {
     render() {
         return (
             <div>
-                <Heading text="Goodbye, cruel world!" /><Icon icon="hand-spock-o" />
+                <Heading text="Goodbye, cruel world!" /><Icon icon="hand-peace-o" />
             </div>);
     }
 }
