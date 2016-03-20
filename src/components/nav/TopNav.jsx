@@ -15,14 +15,6 @@ export default class TopNav extends React.Component {
     render() {
         const {applicationName, user} = this.props;
 
-        var userActionItem;
-        if (user) {
-            userActionItem = <UserMenu user={user}/>;
-        }
-        else {
-            userActionItem = <NavItem eventKey={2} href="#page2"><Icon icon="sign-in" /> Login</NavItem>;
-        }
-
         return (
             <Navbar fixedTop inverse>
                 <Navbar.Header>
@@ -37,7 +29,7 @@ export default class TopNav extends React.Component {
                         <LinkContainer to="page2"><NavItem eventKey={2} href="#">Page 2</NavItem></LinkContainer>
                     </Nav>
                     <Nav pullRight>
-                        {userActionItem}
+                        <UserMenu user={user}/>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

@@ -3,11 +3,13 @@
 @import 'colors';
 
 .fa {
-  color: $heart-red;
+  color: $red;
 }
 
 body {
   background-color: $white;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .jumbotron {

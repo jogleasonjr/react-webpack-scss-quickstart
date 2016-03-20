@@ -8,15 +8,9 @@ export default class Main extends React.Component {
     }
 
     render() {
-
-        var user = {
-            name: 'John Doe',
-            username: 'jdoe'
-        };
-
         return (
             <div className='container'>
-                <TopNav applicationName="React App Template" user={user}/>
+                <TopNav applicationName="React App Template"/>
                 <div className="jumbotron">
                     <div className="text-center">
                         {this.props.children}

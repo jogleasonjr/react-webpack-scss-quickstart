@@ -10,7 +10,7 @@ export default class Page1 extends React.Component {
     render() {
         return (
             <div>
-                <Heading text="Hello, World!" /><Icon icon="heart" />
+                <Heading text="Hello, World!" /><Icon icon="heart fa-2x" />
             </div>);
     }
 }
