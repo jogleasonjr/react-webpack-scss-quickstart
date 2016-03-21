@@ -36,10 +36,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state) => {
-    return {
-        isLoggingIn: state.authentication.isLoggingIn,
-        user: state.authentication.user
-    };
+    return state.authentication;
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

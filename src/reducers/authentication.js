@@ -1,4 +1,4 @@
-import * as ActionTypes from '../constants/authentication';
+import * as AuthConstants from '../constants/authentication';
 
 const initialState = {
   isLoggingIn: false
@@ -6,28 +6,34 @@ const initialState = {
 
 const authentication = (state = initialState, action) => {
     switch (action.type) {
-        case ActionTypes.LOG_IN_REQUEST:
+        case AuthConstants.LOG_IN_REQUEST:
         {
             return Object.assign({}, state, {
                 isLoggingIn: true
             });
         }
 
-        case ActionTypes.LOG_IN_SUCCESS:
+        case AuthConstants.LOG_IN_SUCCESS:
         {
             return Object.assign({}, state, {
-                user: {
-                    name: action.payload.name,
-                    isLoggingIn: false
-                }
+                isLoggingIn: false,
+                user: action.payload.user
             });
         }
 
-        case ActionTypes.LOG_OUT:
+        case AuthConstants.LOG_IN_ERROR:
         {
             return Object.assign({}, state, {
-                user: null,
-                isLoggingIn: false
+                isLoggingIn: false,
+                error: action.error
+            });
+        }
+
+        case AuthConstants.LOG_OUT:
+        {
+            return Object.assign({}, state, {
+                isLoggingIn: false,
+                user: null
             });
         }
 
