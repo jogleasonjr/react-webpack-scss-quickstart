@@ -1,8 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import TopNav from './../components/nav/TopNav';
-import {login, logout} from '../actions/authentication';
-
+import {login, logout, wat} from '../actions/authentication';
 class Main extends React.Component {
     constructor(props) {
         super(props);
@@ -37,7 +36,10 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state) => {
-    return {user: state.authentication.user}
+    return {
+        isLoggingIn: state.authentication.isLoggingIn,
+        user: state.authentication.user
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

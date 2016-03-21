@@ -2,7 +2,7 @@ import React from 'react';
 import {NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import Icon from '../shared/Icon';
 
-export default ({user, login, logout}) => {
+export default ({user, login, logout, isLoggingIn}) => {
 
     const logoutClicked = (e) => {
         e.preventDefault();
@@ -28,9 +28,11 @@ export default ({user, login, logout}) => {
         );
     }
     else {
+        const navIcon = isLoggingIn ? 'spinner  fa-spin' : 'sign-in';
+        const navText = isLoggingIn ? 'Logging in' : 'Login';
         return (
             <NavItem eventKey={2} href="#" onClick={loginClicked}>
-                <Icon icon="sign-in"/> Login
+                <Icon icon={navIcon} /> {navText}
             </NavItem>
         );
     }

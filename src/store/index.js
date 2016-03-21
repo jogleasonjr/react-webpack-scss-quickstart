@@ -1,5 +1,7 @@
-import {createStore} from 'redux'
+import {createStore, applyMiddleware } from 'redux'
 import reducers from '../reducers';
+import thunkMiddleware  from 'redux-thunk'
+
 
 const initialState = {
     // global: {
@@ -9,6 +11,9 @@ const initialState = {
 
 const reduxDevToolsExtension = window.devToolsExtension ? window.devToolsExtension() : undefined;
 
-const store = createStore(reducers, initialState, reduxDevToolsExtension);
+const store = createStore(
+    reducers,
+    initialState,
+    applyMiddleware(thunkMiddleware));
 
 export default store;
