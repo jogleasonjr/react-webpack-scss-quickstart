@@ -1,13 +1,11 @@
-// Need both React and ReactDOM for the JSX transpiler.
 import ReactDOM from 'react-dom';
 import React from 'react';
 import {Router, hashHistory} from 'react-router';
 import routes from './config/routes';
-import auth from './reducers/authenticate';
-import {createStore} from 'redux'
 import {Provider} from 'react-redux'
+import "!style!css!sass!./styles/main.scss";
 
-const store = createStore(auth);
+import store from './store';
 
 ReactDOM.render(
     <Provider store={store}>

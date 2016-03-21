@@ -1,6 +1,6 @@
-import * as constants from '../actions/authenticate';
+import * as constants from '../actions/authentication';
 
-const auth = (state = {}, action) => {
+const authentication = (state = {}, action) => {
     switch (action.type) {
         case constants.LOG_IN:
         {
@@ -25,4 +25,4 @@ const auth = (state = {}, action) => {
     }
 };
 
-export default auth;
+export default authentication;
