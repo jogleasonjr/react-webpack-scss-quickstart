@@ -11,12 +11,10 @@ export default ({user, login, logout, isLoggingIn, error}) => {
 
     const loginClicked = (e) => {
         e.preventDefault();
-        login('jgleason_dev01', 'sunshine');
+        login('username_x', 'password_y');
     };
 
     if (user) {
-        console.log('user', user);
-        console.log('name', user.name);
         return (
             <NavDropdown eventKey={3} title={<span><Icon icon="user" /> {user.name}</span>} id="basic-nav-dropdown">
                 <MenuItem eventKey={3.1}>Action</MenuItem>
