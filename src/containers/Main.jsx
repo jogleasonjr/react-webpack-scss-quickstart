@@ -8,10 +8,13 @@ class Main extends React.Component {
     }
 
     render() {
+
+        const {applicationName} = this.props;
+        
         return (
             <div className='container'>
 
-                <TopNav applicationName="React App Template" {...this.props}/>
+                <TopNav applicationName={applicationName} {...this.props}/>
 
                 <div className="jumbotron">
                     <div className="text-center">
@@ -36,7 +39,12 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state) => {
-    return state.authentication;
+    return {
+        applicationName: state.global.applicationName,
+
+        //everything from auth
+        ...state.authentication
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

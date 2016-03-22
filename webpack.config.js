@@ -68,6 +68,7 @@ module.exports = {
                 include: PATHS.src,
                 loader: 'babel',
                 query: {
+                    plugins: ['transform-object-rest-spread'],
                     presets: ['react', 'es2015']
                 }
             },

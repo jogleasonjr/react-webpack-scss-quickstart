@@ -4,9 +4,9 @@ import thunkMiddleware  from 'redux-thunk'
 
 
 const initialState = {
-    // global: {
-    //     appName: "Redux App Template"
-    // }
+    global: {
+        applicationName: "Redux App Template"
+    }
 };
 
 const reduxDevToolsExtension = window.devToolsExtension ? window.devToolsExtension() : f => f;
