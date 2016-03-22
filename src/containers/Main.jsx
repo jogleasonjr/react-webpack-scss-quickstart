@@ -10,7 +10,7 @@ class Main extends React.Component {
     render() {
 
         const {applicationName} = this.props;
-        
+
         return (
             <div className='container'>
 
