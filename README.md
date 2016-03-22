@@ -1,7 +1,8 @@
 # electron-react-webpack-quick-start
-A minimal web application with [React + Router](https://facebook.github.io/react/) and [Webpack](https://webpack.github.io/). ES6/ES2015 support using [Babel](https://babeljs.io/). SCSS styling with [PostCss](https://github.com/postcss/postcss) and [Bootstrap](http://getbootstrap.com/).
+A minimal web application with [React](https://facebook.github.io/react/), [Router](https://github.com/reactjs/react-router), [Async Redux](http://redux.js.org/docs/advanced/AsyncActions.html), and [Webpack](https://webpack.github.io/). ES6/ES2015 support using [Babel](https://babeljs.io/). SASS/SCSS styling with [PostCss](https://github.com/postcss/postcss) and [Bootstrap](http://getbootstrap.com/).
 
 ![Image](https://github.com/jogleasonjr/react-webpack-scss-quickstart/blob/master/screenshots/run_through.gif)
+<center>Clicking Login simulates an async authorization request. Use a library such as [Fetch](https://github.com/matthew-andrews/isomorphic-fetch) to implement your own authorization endpoint [here](https://github.com/jogleasonjr/react-webpack-scss-quickstart/blob/master/src/actions/authentication.js#L39).</center>
 
 ## To Build and Run via CLI
 
