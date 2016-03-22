@@ -11,7 +11,7 @@ export default ({user, login, logout, isLoggingIn, error}) => {
 
     const loginClicked = (e) => {
         e.preventDefault();
-        login('username_x', 'password_y');
+        login('jgleason_dev01', 'sunshine');
     };
 
     if (user) {
