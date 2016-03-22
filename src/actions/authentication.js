@@ -6,6 +6,18 @@ import {Promise} from 'es6-promise';
 // for some conventions, see: https://github.com/acdlite/flux-standard-action
 
 // action creators
+export const loginPrompt = (username, password) => ({
+    type: AuthConstants.LOG_IN_PROMPT,
+    payload: {
+    }
+});
+
+export const loginCancel= (username, password) => ({
+    type: AuthConstants.LOG_IN_CANCEL,
+    payload: {
+    }
+});
+
 export const loginRequest = (username, password) => ({
     type: AuthConstants.LOG_IN_REQUEST,
     payload: {
@@ -31,7 +43,10 @@ export const logout = () => ({
     type: AuthConstants.LOG_OUT
 });
 
-export const login = (username, password) => {
+export const login = (formData) => {
+
+    const {username, password} = formData;
+    
     return (dispatch) => {
         dispatch(loginRequest(username, password));
 

@@ -1,20 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import TopNav from './../components/nav/TopNav';
-import {login, logout, wat} from '../actions/authentication';
+import {login, logout, loginPrompt, loginCancel} from '../actions/authentication';
+import LoginModal from '../components/auth/LoginModal';
+
 class Main extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-
-        const {applicationName} = this.props;
-
         return (
             <div className='container'>
-
-                <TopNav applicationName={applicationName} {...this.props}/>
+                <LoginModal{...this.props} />
+                <TopNav {...this.props}/>
 
                 <div className="jumbotron">
                     <div className="text-center">
@@ -28,6 +27,14 @@ class Main extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        loginCancel: () => {
+            dispatch(loginCancel());
+        },
+
+        loginPrompt: () => {
+            dispatch(loginPrompt());
+        },
+        
         login: (username, password) => {
             dispatch(login(username, password));
         },
@@ -41,7 +48,8 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
     return {
         applicationName: state.global.applicationName,
-
+        //username: state.form.username,
+        //password: state.form.password,
         //everything from auth
         ...state.authentication
     };

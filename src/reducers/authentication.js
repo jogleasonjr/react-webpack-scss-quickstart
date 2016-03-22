@@ -1,11 +1,30 @@
 import * as AuthConstants from '../constants/authentication';
 
 const initialState = {
-    isLoggingIn: false
+    isLoggingIn: false,
+    loginRequired: true
 };
 
 const authentication = (state = initialState, action) => {
     switch (action.type) {
+
+        case AuthConstants.LOG_IN_PROMPT:
+        {
+            return {
+                ...state,
+                loginRequired: true
+            };
+        }
+
+        case AuthConstants.LOG_IN_CANCEL:
+        {
+            return {
+                ...state,
+                loginRequired: false
+            };
+        }
+
+
         case AuthConstants.LOG_IN_REQUEST:
         {
             return {
@@ -19,6 +38,7 @@ const authentication = (state = initialState, action) => {
             return {
                 ...state,
                 isLoggingIn: false,
+                loginRequired: false,
                 user: action.payload.user
             };
         }

@@ -2,7 +2,7 @@ import React from 'react';
 import {NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import Icon from '../shared/Icon';
 
-export default ({user, login, logout, isLoggingIn, error}) => {
+export default ({user, loginPrompt, login, logout, isLoggingIn, error}) => {
 
     const logoutClicked = (e) => {
         e.preventDefault();
@@ -11,7 +11,8 @@ export default ({user, login, logout, isLoggingIn, error}) => {
 
     const loginClicked = (e) => {
         e.preventDefault();
-        login('jgleason_dev01', 'sunshine');
+        loginPrompt();
+        //login('jgleason_dev01', 'sunshine');
     };
 
     if (user) {
