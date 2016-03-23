@@ -1,5 +1,5 @@
 {
-  "name": "transplicity-fx-home",
+  "name": "react-webpack-scss-quickstart",
   "version": "0.0.1",
   "description": "A minimal, cross-platform web application with React and Webpack. ES6/ES2015 support using Babel. SCSS support using PostCss.",
   "main": "index.js",
@@ -12,7 +12,7 @@
     "build": "./node_modules/.bin/webpack -p "
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.3.3",
     "babel-core": "^6.5.2",
@@ -20,7 +20,6 @@
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
     "css-loader": "^0.23.1",
-    "electron-prebuilt": "^0.36.0",
     "eslint": "^2.1.0",
     "eslint-loader": "^1.2.1",
     "file-loader": "^0.8.5",
