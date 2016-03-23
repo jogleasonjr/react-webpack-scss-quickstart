@@ -36,4 +36,4 @@ export default ({user, login, logout, isLoggingIn, error}) => {
             </NavItem>
         );
     }
-}
+};

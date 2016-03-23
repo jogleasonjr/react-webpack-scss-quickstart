@@ -1,6 +1,6 @@
-import {createStore, applyMiddleware } from 'redux'
+import {createStore, applyMiddleware} from 'redux';
 import reducers from '../reducers';
-import thunkMiddleware  from 'redux-thunk'
+import thunkMiddleware from 'redux-thunk';
 
 
 const initialState = {
