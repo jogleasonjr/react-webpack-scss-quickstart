@@ -1,4 +1,4 @@
-# electron-react-webpack-quick-start
+# react-webpack-scss-quickstart
 A minimal web application with [React](https://facebook.github.io/react/), [Router](https://github.com/reactjs/react-router), [Async Redux](http://redux.js.org/docs/advanced/AsyncActions.html), and [Webpack](https://webpack.github.io/). ES6/ES2015 support using [Babel](https://babeljs.io/). SASS/SCSS styling with [PostCss](https://github.com/postcss/postcss) and [Bootstrap](http://getbootstrap.com/).
 
 ## Demo
