@@ -1,10 +1,24 @@
-// action types
-export const LOG_IN_PROMPT = 'LOG_IN_PROMPT';
-export const LOG_IN_CANCEL = 'LOG_IN_CANCEL';
-export const LOG_IN_REQUEST = 'LOG_IN_REQUEST';
-export const LOG_IN_SUCCESS = 'LOG_IN_SUCCESS';
-export const LOG_IN_ERROR = 'LOG_IN_ERROR';
-export const LOG_OUT = 'LOG_OUT';
+import keyMirror from 'fbjs/lib/keyMirror';
 
-export const TOKEN_ENDPOINT = 'http://20.20.20.31:8012/oauth/token';
-export const PROFILE_ENDPOINT = 'http://20.20.20.31:8013/api/v1/userprofile/me';
+// use keyMirror here so we can cleanly refactor action names
+// throughout the whole app.
+const actionTypes = keyMirror({
+    LOG_IN_PROMPT: null,
+    LOG_IN_CANCEL: null,
+    LOG_IN_REQUEST: null,
+    LOG_IN_SUCCESS: null,
+    LOG_IN_ERROR: null,
+    LOG_OUT: null
+});
+
+export default {
+    ...actionTypes,
+    TOKEN_ENDPOINT: 'http://20.20.20.31:8012/oauth/token',
+    PROFILE_ENDPOINT: 'http://20.20.20.31:8013/api/v1/userprofile/me'
+};
+
+console.log({
+    ...actionTypes,
+    TOKEN_ENDPOINT: 'http://20.20.20.31:8012/oauth/token',
+    PROFILE_ENDPOINT: 'http://20.20.20.31:8013/api/v1/userprofile/me'
+});

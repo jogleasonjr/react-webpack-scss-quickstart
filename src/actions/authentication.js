@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import * as AuthConstants from '../constants/authentication';
+import AuthConstants from '../constants/authentication';
 import {Promise} from 'es6-promise';
 
 // for actions, see: http://redux.js.org/docs/basics/Actions.html
@@ -46,7 +46,7 @@ export const logout = () => ({
 export const login = (formData) => {
 
     const {username, password} = formData;
-    
+
     return (dispatch) => {
         dispatch(loginRequest(username, password));
 

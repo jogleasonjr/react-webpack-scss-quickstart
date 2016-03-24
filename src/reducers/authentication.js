@@ -1,4 +1,4 @@
-import * as AuthConstants from '../constants/authentication';
+import AuthConstants from '../constants/authentication';
 
 const initialState = {
     isLoggingIn: false,

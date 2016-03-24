@@ -41,10 +41,9 @@ export default class LoginModal extends React.Component {
                     </Modal.Footer>
                 </Modal>
             </div>
-        )
+        );
     }
 }
-;
 
 
 class LoginForm extends React.Component {
@@ -60,8 +59,8 @@ class LoginForm extends React.Component {
                 <input type="text" {...username} placeholder="Username"/>
                 <input type="password" {...password} placeholder="Password"/>
             </form>
-        )
-    }
+        );
+    };
 };
 
 LoginForm = reduxForm({
