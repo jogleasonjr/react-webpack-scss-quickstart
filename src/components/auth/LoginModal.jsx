@@ -26,7 +26,7 @@ export default class LoginModal extends React.Component {
         const loginText = isLoggingIn ? "Logging in..." : "Login";
         return (
             <div className="static-modal">
-                <Modal show={loginRequired}>
+                <Modal className="loginModal" show={loginRequired}>
                     <Modal.Header>
                         <Button className="close" disabled={isLoggingIn} onClick={this.cancelClicked}>x</Button>
                         <Modal.Title>Log in to {applicationName}</Modal.Title>
@@ -58,7 +58,7 @@ class LoginForm extends React.Component {
         const {fields: {username, password}, onSubmit, isLoggingIn} = this.props;
 
         return (
-            <form onSubmit={onSubmit}>
+            <form  onSubmit={onSubmit}>
                 <Input disabled={isLoggingIn} type="text" {...username} placeholder="Username"/>
                 <Input disabled={isLoggingIn} type="password" {...password} placeholder="Password"/>
             </form>

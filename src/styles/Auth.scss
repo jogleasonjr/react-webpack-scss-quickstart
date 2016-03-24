@@ -1,7 +1,17 @@
 @import './colors';
 
-.modal {
-  text-align: center;
+.loginModal {
+
+  width: 400px;
+  left: 50%;
+  margin-top: 50px;
+  margin-left: -200px;
+
+
+  .modal-content {
+    width: 350px;
+    text-align: center
+  }
 
   .btn-primary {
     background-color: $accent;
