@@ -1,21 +1,29 @@
-import fetch from 'isomorphic-fetch';
-import AuthConstants from '../constants/authentication';
-import {Promise} from 'es6-promise';
-
 // for actions, see: http://redux.js.org/docs/basics/Actions.html
 // for some conventions, see: https://github.com/acdlite/flux-standard-action
 
-// action creators
-export const loginPrompt = (username, password) => ({
-    type: AuthConstants.LOG_IN_PROMPT,
-    payload: {
-    }
-});
+import fetch from 'isomorphic-fetch';
+import AuthConstants from '../constants/authentication';
+import {Promise} from 'es6-promise';
+import Storage from '../utils/storage';
 
-export const loginCancel= (username, password) => ({
-    type: AuthConstants.LOG_IN_CANCEL,
-    payload: {
+const PROFILE_STORAGE_KEY = 'PROFILE_STORAGE_KEY';
+
+export const loginPrompt = () => {
+    var profile = Storage.getJSON(PROFILE_STORAGE_KEY);
+    if (profile) {
+        return loginSuccess(profile);
     }
+    else {
+        return {
+            type: AuthConstants.LOG_IN_PROMPT,
+            payload: {}
+        }
+    }
+};
+
+export const loginCancel = (username, password) => ({
+    type: AuthConstants.LOG_IN_CANCEL,
+    payload: {}
 });
 
 export const loginRequest = (username, password) => ({
@@ -39,9 +47,13 @@ export const loginError = (status) => ({
     error: true
 });
 
-export const logout = () => ({
-    type: AuthConstants.LOG_OUT
-});
+export const logout = () => {
+    localStorage.removeItem(PROFILE_STORAGE_KEY);
+
+    return {
+        type: AuthConstants.LOG_OUT
+    }
+};
 
 export const login = (formData) => {
 
@@ -61,8 +73,10 @@ export const login = (formData) => {
                 if (response.ok) {
                     console.log(json.access_token);
                     getProfile(json.access_token).then(profile => {
-                        console.log('fetchprof', profile);
                         profile.accessToken = json.access_token;
+
+                        Storage.setJSON(PROFILE_STORAGE_KEY, profile);
+
                         dispatch(loginSuccess(profile));
                     });
                 } else {
@@ -74,15 +88,6 @@ export const login = (formData) => {
             console.log('network error', err);
             dispatch(loginError(err));
         });
-
-        // .then(function (response) {
-        //         console.log('response', response);
-        //     }).then(function (wat) {
-        //
-        //     console.log('wat', wat);
-        //
-        //     dispatch(loginError(response));
-        // });
     };
 };
 

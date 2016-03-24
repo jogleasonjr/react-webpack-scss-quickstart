@@ -2,7 +2,7 @@ import AuthConstants from '../constants/authentication';
 
 const initialState = {
     isLoggingIn: false,
-    loginRequired: true
+    loginRequired: false
 };
 
 const authentication = (state = initialState, action) => {

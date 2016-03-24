@@ -29,7 +29,7 @@ export default class LoginModal extends React.Component {
             <div className="static-modal">
                 <Modal className="loginModal" show={loginRequired}>
                     <Modal.Header>
-                        <Button className="close" disabled={isLoggingIn} onClick={this.cancelClicked}>x</Button>
+                        <Button className="close" disabled={isLoggingIn} onClick={this.cancelClicked}><span aria-hidden="true">&times;</span></Button>
                         <Modal.Title>Log in to {applicationName}</Modal.Title>
                     </Modal.Header>
 

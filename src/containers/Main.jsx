@@ -9,6 +9,11 @@ class Main extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        this.props.loginPrompt();
+    }
+
+
     render() {
         return (
             <div className='container'>
