@@ -1,6 +1,7 @@
 import React from 'react';
 import {reduxForm} from 'redux-form';
-import {Modal, Button} from 'react-bootstrap';
+import {Modal, Button, Input} from 'react-bootstrap';
+import Icon from '../shared/Icon';
 
 
 export default class LoginModal extends React.Component {
@@ -14,30 +15,32 @@ export default class LoginModal extends React.Component {
         this.refs.loginForm.submit();
     }
 
-    cancelClicked(e){
+    cancelClicked(e) {
         e.preventDefault();
         this.props.loginCancel();
     };
 
     render() {
 
-        const {loginRequired, login} = this.props;
-
+        const {loginRequired, login, isLoggingIn, applicationName} = this.props;
+        const loginText = isLoggingIn ? "Logging in..." : "Login";
         return (
             <div className="static-modal">
                 <Modal show={loginRequired}>
                     <Modal.Header>
-                        <Modal.Title>Please log in</Modal.Title>
+                        <Button className="close" disabled={isLoggingIn} onClick={this.cancelClicked}>x</Button>
+                        <Modal.Title>Log in to {applicationName}</Modal.Title>
                     </Modal.Header>
 
-                    <Modal.Body>
-                        One fine body...
-                        <LoginForm ref="loginForm" onSubmit={login}/>
+                    <Modal.Body >
+                        <LoginForm ref="loginForm" onSubmit={login} isLoggingIn={isLoggingIn}/>
                     </Modal.Body>
 
                     <Modal.Footer>
-                        <Button onClick={this.cancelClicked}>Cancel</Button>
-                        <Button onClick={this.handleSubmit} bsStyle="primary">Login</Button>
+                        { isLoggingIn ? <Icon icon='spinner  fa-spin'/> : null }
+                        <Button disabled={isLoggingIn} onClick={this.cancelClicked}>Cancel</Button>
+                        <Button disabled={isLoggingIn} onClick={this.handleSubmit}
+                                bsStyle="primary">{loginText}</Button>
                     </Modal.Footer>
                 </Modal>
             </div>
@@ -52,24 +55,25 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        const {fields: {username, password}, onSubmit} = this.props;
+        const {fields: {username, password}, onSubmit, isLoggingIn} = this.props;
 
         return (
             <form onSubmit={onSubmit}>
-                <input type="text" {...username} placeholder="Username"/>
-                <input type="password" {...password} placeholder="Password"/>
+                <Input disabled={isLoggingIn} type="text" {...username} placeholder="Username"/>
+                <Input disabled={isLoggingIn} type="password" {...password} placeholder="Password"/>
             </form>
         );
     };
-};
+}
+;
 
 LoginForm = reduxForm({
-    form: 'login',
-    fields: ['username', 'password']
-},
-state => ({
-    initialValues: {
-        username: state.global.storedUserName,
-        password: state.global.storedPassword
-    }
-}))(LoginForm);
+        form: 'login',
+        fields: ['username', 'password']
+    },
+    state => ({
+        initialValues: {
+            username: state.global.storedUserName,
+            password: state.global.storedPassword
+        }
+    }))(LoginForm);

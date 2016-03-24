@@ -2,6 +2,8 @@
 @import './../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import 'colors';
 
+@import './Auth';
+
 .fa {
   color: $accent;
 }

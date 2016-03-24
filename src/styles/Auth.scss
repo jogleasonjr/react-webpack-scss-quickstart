@@ -1,0 +1,19 @@
+@import './colors';
+
+.modal {
+  text-align: center;
+
+  .btn-primary {
+    background-color: $accent;
+    border-color: $accent-dark;
+  }
+
+  .icon .fa {
+    margin-right: 0.5em;
+    font-size: 1.5em;
+    vertical-align: middle;
+  }
+
+  .input {
+  }
+}
