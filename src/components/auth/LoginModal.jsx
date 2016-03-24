@@ -1,7 +1,7 @@
 import React from 'react';
-import {reduxForm} from 'redux-form';
-import {Modal, Button, Input} from 'react-bootstrap';
+import {Modal, Button} from 'react-bootstrap';
 import Icon from '../shared/Icon';
+import LoginForm from './LoginForm';
 
 
 export default class LoginModal extends React.Component {
@@ -22,7 +22,8 @@ export default class LoginModal extends React.Component {
 
     render() {
 
-        const {loginRequired, login, isLoggingIn, applicationName} = this.props;
+        const {loginRequired, login, isLoggingIn, applicationName, loginError} = this.props;
+       if(loginError) console.log(loginError);
         const loginText = isLoggingIn ? "Logging in..." : "Login";
         return (
             <div className="static-modal">
@@ -37,6 +38,7 @@ export default class LoginModal extends React.Component {
                     </Modal.Body>
 
                     <Modal.Footer>
+                        { loginError ? <small className="loginError">{loginError.toString()}</small> : null }
                         { isLoggingIn ? <Icon icon='spinner  fa-spin'/> : null }
                         <Button disabled={isLoggingIn} onClick={this.cancelClicked}>Cancel</Button>
                         <Button disabled={isLoggingIn} onClick={this.handleSubmit}
@@ -47,33 +49,3 @@ export default class LoginModal extends React.Component {
         );
     }
 }
-
-
-class LoginForm extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        const {fields: {username, password}, onSubmit, isLoggingIn} = this.props;
-
-        return (
-            <form  onSubmit={onSubmit}>
-                <Input disabled={isLoggingIn} type="text" {...username} placeholder="Username"/>
-                <Input disabled={isLoggingIn} type="password" {...password} placeholder="Password"/>
-            </form>
-        );
-    };
-}
-;
-
-LoginForm = reduxForm({
-        form: 'login',
-        fields: ['username', 'password']
-    },
-    state => ({
-        initialValues: {
-            username: state.global.storedUserName,
-            password: state.global.storedPassword
-        }
-    }))(LoginForm);

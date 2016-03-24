@@ -67,7 +67,7 @@ export const login = (formData) => {
                     });
                 } else {
                     console.log('login error', json);
-                    dispatch(loginError(json));
+                    dispatch(loginError(json.error_description));
                 }
             });
         }).catch(function (err) {

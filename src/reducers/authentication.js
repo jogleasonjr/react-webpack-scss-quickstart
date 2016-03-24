@@ -20,7 +20,8 @@ const authentication = (state = initialState, action) => {
         {
             return {
                 ...state,
-                loginRequired: false
+                loginRequired: false,
+                loginError: false
             };
         }
 
@@ -29,7 +30,8 @@ const authentication = (state = initialState, action) => {
         {
             return {
                 ...state,
-                isLoggingIn: true
+                isLoggingIn: true,
+                loginError: false
             };
         }
 
@@ -48,7 +50,7 @@ const authentication = (state = initialState, action) => {
             return {
                 ...state,
                 isLoggingIn: false,
-                error: action.error
+                loginError: action.payload
             };
         }
 
