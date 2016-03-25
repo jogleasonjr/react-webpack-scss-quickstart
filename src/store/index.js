@@ -1,13 +1,12 @@
-import {createStore, applyMiddleware, compose} from 'redux'
+import {createStore, applyMiddleware, compose} from 'redux';
 import reducers from '../reducers';
-import thunkMiddleware  from 'redux-thunk'
+import thunkMiddleware  from 'redux-thunk';
 
 
 const initialState = {
     global: {
-        applicationName: "Redux App Template",
-        //storedUserName: "",
-        //storedPassword: ""
+        applicationName: "Transplicity Fx",
+        environmentName: "[DEV-01]"
     }
 };
 

@@ -4,7 +4,7 @@
 import AuthConstants from '../constants/authentication';
 import {Promise} from 'es6-promise';
 import Storage from '../utils/storage';
-import api from '../utils/Fakeapi';
+import api from '../utils/api';
 
 const PROFILE_STORAGE_KEY = 'PROFILE_STORAGE_KEY';
 
@@ -17,7 +17,7 @@ export const loginPrompt = () => {
         return {
             type: AuthConstants.LOG_IN_PROMPT,
             payload: {}
-        }
+        };
     }
 };
 
@@ -48,7 +48,7 @@ export const logout = () => {
 
     return {
         type: AuthConstants.LOG_OUT
-    }
+    };
 };
 
 export const login = (formData) => {

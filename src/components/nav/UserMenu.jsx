@@ -2,7 +2,7 @@ import React from 'react';
 import {NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import Icon from '../shared/Icon';
 
-export default ({user, loginPrompt, logout, isLoggingIn, loginError}) => {
+export default ({user, loginPrompt, logout, isLoggingIn, loginError, environmentName}) => {
 
     const logoutClicked = (e) => {
         e.preventDefault();
@@ -32,7 +32,7 @@ export default ({user, loginPrompt, logout, isLoggingIn, loginError}) => {
         const navText = isLoggingIn ? 'Logging in' : loginError? 'Error logging in!' :'Login';
         return (
             <NavItem eventKey={2} href="#" onClick={loginClicked}>
-                <Icon icon={navIcon} /> {navText}
+                <Icon icon={navIcon} /> {navText} <small>{environmentName}</small>
             </NavItem>
         );
     }

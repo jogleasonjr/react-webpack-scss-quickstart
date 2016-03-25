@@ -53,8 +53,8 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
     return {
         applicationName: state.global.applicationName,
-        //username: state.form.username,
-        //password: state.form.password,
+        environmentName: state.global.environmentName,
+        
         //everything from auth
         ...state.authentication
     };

@@ -10,6 +10,7 @@
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --port 8182",
     "build": "./node_modules/.bin/webpack -p",
+    "deploy": "webpack && cp dist/* \\\\20.20.20.31\\c$\\tfx",
     "test": "jest"
   },
   "author": "",

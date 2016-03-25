@@ -29,7 +29,7 @@ export default class LoginModal extends React.Component {
 
     render() {
 
-        const {loginRequired, login, isLoggingIn, applicationName, loginError} = this.props;
+        const {loginRequired, login, isLoggingIn, applicationName, environmentName, loginError} = this.props;
         if (loginError) console.log(loginError);
         const loginText = isLoggingIn ? "Logging in..." : "Login";
         return (
@@ -38,7 +38,7 @@ export default class LoginModal extends React.Component {
                     <Modal.Header>
                         <Button className="close" disabled={isLoggingIn} onClick={this.cancelClicked}><span
                             aria-hidden="true">&times;</span></Button>
-                        <Modal.Title>Log in to {applicationName}</Modal.Title>
+                        <Modal.Title>Log in to {applicationName} <small>{environmentName}</small></Modal.Title>
                     </Modal.Header>
 
                     <Modal.Body >
