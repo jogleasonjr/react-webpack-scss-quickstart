@@ -38,7 +38,7 @@ export default class LoginModal extends React.Component {
                     </Modal.Body>
 
                     <Modal.Footer>
-                        { loginError ? <small className="loginError">{loginError.toString()}</small> : null }
+                        { loginError ? <div><small className="loginError">{loginError.toString()}</small></div> : null }
                         { isLoggingIn ? <Icon icon='spinner  fa-spin'/> : null }
                         <Button disabled={isLoggingIn} onClick={this.cancelClicked}>Cancel</Button>
                         <Button disabled={isLoggingIn} onClick={this.handleSubmit}

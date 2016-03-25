@@ -12,7 +12,5 @@ const actionTypes = keyMirror({
 });
 
 export default {
-    ...actionTypes,
-    TOKEN_ENDPOINT: 'http://20.20.20.31:8012/oauth/token',
-    PROFILE_ENDPOINT: 'http://20.20.20.31:8013/api/v1/userprofile/me'
+    ...actionTypes
 };

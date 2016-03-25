@@ -100,7 +100,7 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            // title: 'React DevKit',
+            favicon: 'src/assets/favicon.ico',
             template: 'src/index.html',
             inject: true
         })

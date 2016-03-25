@@ -1,10 +1,10 @@
 // for actions, see: http://redux.js.org/docs/basics/Actions.html
 // for some conventions, see: https://github.com/acdlite/flux-standard-action
 
-import fetch from 'isomorphic-fetch';
 import AuthConstants from '../constants/authentication';
 import {Promise} from 'es6-promise';
 import Storage from '../utils/storage';
+import api from '../utils/api';
 
 const PROFILE_STORAGE_KEY = 'PROFILE_STORAGE_KEY';
 
@@ -21,17 +21,13 @@ export const loginPrompt = () => {
     }
 };
 
-export const loginCancel = (username, password) => ({
+export const loginCancel = () => ({
     type: AuthConstants.LOG_IN_CANCEL,
     payload: {}
 });
 
-export const loginRequest = (username, password) => ({
-    type: AuthConstants.LOG_IN_REQUEST,
-    payload: {
-        username,
-        password
-    }
+export const loginRequest = () => ({
+    type: AuthConstants.LOG_IN_REQUEST
 });
 
 export const loginSuccess = (user) => ({
@@ -58,48 +54,28 @@ export const logout = () => {
 export const login = (formData) => {
 
     const {username, password} = formData;
-
     return (dispatch) => {
-        dispatch(loginRequest(username, password));
-
-        fetch(AuthConstants.TOKEN_ENDPOINT, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: `username=${username}&password=${password}&grant_type=password&environmentId=dev_01`
-        }).then(function (response) {
-            response.json().then(json => {
-                if (response.ok) {
-                    console.log(json.access_token);
-                    getProfile(json.access_token).then(profile => {
-                        profile.accessToken = json.access_token;
-
-                        Storage.setJSON(PROFILE_STORAGE_KEY, profile);
-
-                        dispatch(loginSuccess(profile));
-                    });
-                } else {
-                    console.log('login error', json);
-                    dispatch(loginError(json.error_description));
+        dispatch(loginRequest());
+        
+        api.getToken(username, password)
+            .then(authResponse => {
+                var token = authResponse.access_token;
+                return api.getUserProfile(token);
+            })
+            .then(profile => {
+                Storage.setJSON(PROFILE_STORAGE_KEY, profile);
+                dispatch(loginSuccess(profile));
+            })
+            .catch(errorStatusCode => {
+                switch (errorStatusCode) {
+                    case 400:
+                        dispatch(loginError("Username or password is incorrect."));
+                        break;
+                    default:
+                        dispatch(loginError("Unknown error: " + errorStatusCode));
+                        break;
                 }
             });
-        }).catch(function (err) {
-            console.log('network error', err);
-            dispatch(loginError(err));
-        });
     };
 };
 
-const getProfile = (token) => {
-    return fetch(AuthConstants.PROFILE_ENDPOINT, {
-        headers: {
-            "Authorization": "Bearer " + token
-        }
-    }).then(function (response) {
-        return response.json();
-    }).catch(function (err) {
-        console.log('network error', err);
-        dispatch(loginError(err));
-    });
-};
