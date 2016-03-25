@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import {Router, hashHistory} from 'react-router';
 import routes from './config/routes';
-import {Provider} from 'react-redux'
+import {Provider} from 'react-redux';
 import "!style!css!sass!./styles/main.scss";
 
 import store from './store';
