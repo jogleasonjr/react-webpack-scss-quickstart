@@ -8,16 +8,33 @@ const LoginForm = (props) => {
 
     return (
         <form onSubmit={onSubmit}>
-            <Input disabled={isLoggingIn} type="text" {...username} placeholder="Username"/>
+            <div>
+                {username.touched && username.error && <div className="loginError">{username.error}</div>}
+                <Input disabled={isLoggingIn}
+                       bsStyle={(username.touched && username.error) ? "error" : username.touched ? "success" : null}
+                       hasFeedback type="text" {...username} placeholder="Username"/>
+            </div>
             <Input disabled={isLoggingIn} type="password" {...password} placeholder="Password"/>
         </form>
     );
 };
 
+const validate = (values) => {
+    const errors = {};
+
+    if (!values.username) {
+        errors.username = 'Required';
+    } else if (values.username.length < 3) {
+        errors.username = 'Must be at least 3 characters';
+    }
+
+    return errors;
+};
 
 export default reduxForm({
         form: 'login',
-        fields: ['username', 'password']
+        fields: ['username', 'password'],
+        validate
     },
     state => ({
         initialValues: {

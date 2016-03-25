@@ -6,8 +6,8 @@ import thunkMiddleware  from 'redux-thunk'
 const initialState = {
     global: {
         applicationName: "Redux App Template",
-        storedUserName: "jgleason_dev01",
-        storedPassword: "sunshine"
+        //storedUserName: "",
+        //storedPassword: ""
     }
 };
 

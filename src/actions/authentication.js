@@ -4,7 +4,7 @@
 import AuthConstants from '../constants/authentication';
 import {Promise} from 'es6-promise';
 import Storage from '../utils/storage';
-import api from '../utils/api';
+import api from '../utils/Fakeapi';
 
 const PROFILE_STORAGE_KEY = 'PROFILE_STORAGE_KEY';
 
@@ -56,7 +56,7 @@ export const login = (formData) => {
     const {username, password} = formData;
     return (dispatch) => {
         dispatch(loginRequest());
-        
+
         api.getToken(username, password)
             .then(authResponse => {
                 var token = authResponse.access_token;
