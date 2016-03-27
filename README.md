@@ -2,10 +2,12 @@
 A minimal web application with [React](https://facebook.github.io/react/), [Router](https://github.com/reactjs/react-router), [Async Redux](http://redux.js.org/docs/advanced/AsyncActions.html), and [Webpack](https://webpack.github.io/). ES6/ES2015 support using [Babel](https://babeljs.io/). SASS/SCSS styling with [PostCss](https://github.com/postcss/postcss) and [Bootstrap](http://getbootstrap.com/).
 
 ## Demo
-[Click here](https://react-webpack-scss-quickstart.herokuapp.com)
+[Click here](http://react-webpack-scss-quickstart.s3-website-us-west-2.amazonaws.com/)
+
+Log in with any username/password combination. The app will remember you between sessions.
 
 ![Image](https://github.com/jogleasonjr/react-webpack-scss-quickstart/blob/master/screenshots/run_through.gif)
-<center>Clicking Login simulates an async authorization request. Use a library such as [Fetch](https://github.com/matthew-andrews/isomorphic-fetch) to implement your own authorization endpoint [here](https://github.com/jogleasonjr/react-webpack-scss-quickstart/blob/master/src/actions/authentication.js#L39).</center>
+<center>Logging in simulates an async authorization request. Use a library such as [Fetch](https://github.com/matthew-andrews/isomorphic-fetch) to implement your own authorization endpoint [here](https://github.com/jogleasonjr/react-webpack-scss-quickstart/blob/master/src/actions/authentication.js#L39).</center>
 
 ## To Build and Run via CLI
 
@@ -20,8 +22,8 @@ npm install && npm run start
 Now navigate to [http://localhost:8182/webpack-dev-server/](http://localhost:8182/webpack-dev-server/) in your browser.
 
 ## Next Steps
-
-Learn more about React and JSX components [here](https://facebook.github.io/react/docs/getting-started.html).
+* Learn about managing Redux state [here](https://github.com/reactjs/redux)
+* Learn more about React and JSX components [here](https://facebook.github.io/react/docs/getting-started.html).
 
 ## License
 
