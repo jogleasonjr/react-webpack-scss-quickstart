@@ -22,8 +22,8 @@ npm install && npm run start
 Now navigate to [http://localhost:8182/webpack-dev-server/](http://localhost:8182/webpack-dev-server/) in your browser.
 
 ## Next Steps
-
-Learn more about React and JSX components [here](https://facebook.github.io/react/docs/getting-started.html).
+* Learn about managing Redux state [here](https://github.com/reactjs/redux)
+* Learn more about React and JSX components [here](https://facebook.github.io/react/docs/getting-started.html).
 
 ## License
 
