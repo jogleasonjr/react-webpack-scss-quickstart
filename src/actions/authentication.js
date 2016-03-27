@@ -17,7 +17,7 @@ export const loginPrompt = () => {
         return {
             type: AuthConstants.LOG_IN_PROMPT,
             payload: {}
-        }
+        };
     }
 };
 
@@ -48,7 +48,7 @@ export const logout = () => {
 
     return {
         type: AuthConstants.LOG_OUT
-    }
+    };
 };
 
 export const login = (formData) => {
