@@ -5,8 +5,8 @@ import thunkMiddleware  from 'redux-thunk';
 
 const initialState = {
     global: {
-        applicationName: "Transplicity Fx",
-        environmentName: "[DEV-01]"
+        applicationName: "Redux App Template",
+        environmentName: "v1.0"
     }
 };
 

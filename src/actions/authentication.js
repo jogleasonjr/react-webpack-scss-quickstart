@@ -4,7 +4,7 @@
 import AuthConstants from '../constants/authentication';
 import {Promise} from 'es6-promise';
 import Storage from '../utils/storage';
-import api from '../utils/api';
+import api from '../utils/fakeApi.js';
 
 const PROFILE_STORAGE_KEY = 'PROFILE_STORAGE_KEY';
 
