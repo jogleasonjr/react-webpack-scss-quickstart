@@ -11,6 +11,11 @@ Log in with any username/password combination. The app will remember you between
 
 ## To Build and Run via CLI
 
+Dependencies:
+
+* [Python 2.7](https://www.python.org/downloads/). I haven't tested Python 3.
+* [Visual Studio 2015](https://www.visualstudio.com/downloads/). I used the Enterprise Edition, the Community Edition (free) will probably work. 
+
 ```bash
 # Clone this repository
 git clone https://github.com/jogleasonjr/react-webpack-scss-quickstart
